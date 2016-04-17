@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  HSDrawViewController.h
 //  20160417-抽屉效果
 //
 //  Created by devzkn on 4/17/16.
@@ -7,9 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HSDrawViewController.h"
-@interface ViewController : HSDrawViewController
 
+@interface HSDrawViewController : UIViewController
 
 @end
-

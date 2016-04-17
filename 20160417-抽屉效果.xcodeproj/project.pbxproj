@@ -15,6 +15,7 @@
 		E1A141231CC339BE00BBB0F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1A141211CC339BE00BBB0F4 /* LaunchScreen.storyboard */; };
 		E1A1412E1CC339BE00BBB0F4 /* _0160417_____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A1412D1CC339BE00BBB0F4 /* _0160417_____Tests.m */; };
 		E1A141391CC339BE00BBB0F4 /* _0160417_____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A141381CC339BE00BBB0F4 /* _0160417_____UITests.m */; };
+		E1A141481CC339DB00BBB0F4 /* HSDrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A141471CC339DB00BBB0F4 /* HSDrawViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		E1A141341CC339BE00BBB0F4 /* 20160417-抽屉效果UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "20160417-抽屉效果UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1A141381CC339BE00BBB0F4 /* _0160417_____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_0160417_____UITests.m"; sourceTree = "<group>"; };
 		E1A1413A1CC339BE00BBB0F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1A141461CC339DB00BBB0F4 /* HSDrawViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSDrawViewController.h; sourceTree = "<group>"; };
+		E1A141471CC339DB00BBB0F4 /* HSDrawViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSDrawViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,11 +107,9 @@
 				E1A141161CC339BE00BBB0F4 /* AppDelegate.h */,
 				E1A141171CC339BE00BBB0F4 /* AppDelegate.m */,
 				E1A141191CC339BE00BBB0F4 /* ViewController.h */,
+				E1A141461CC339DB00BBB0F4 /* HSDrawViewController.h */,
+				E1A141471CC339DB00BBB0F4 /* HSDrawViewController.m */,
 				E1A1411A1CC339BE00BBB0F4 /* ViewController.m */,
-				E1A1411C1CC339BE00BBB0F4 /* Main.storyboard */,
-				E1A1411F1CC339BE00BBB0F4 /* Assets.xcassets */,
-				E1A141211CC339BE00BBB0F4 /* LaunchScreen.storyboard */,
-				E1A141241CC339BE00BBB0F4 /* Info.plist */,
 				E1A141131CC339BE00BBB0F4 /* Supporting Files */,
 			);
 			path = "20160417-抽屉效果";
@@ -117,6 +118,10 @@
 		E1A141131CC339BE00BBB0F4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E1A1411C1CC339BE00BBB0F4 /* Main.storyboard */,
+				E1A1411F1CC339BE00BBB0F4 /* Assets.xcassets */,
+				E1A141211CC339BE00BBB0F4 /* LaunchScreen.storyboard */,
+				E1A141241CC339BE00BBB0F4 /* Info.plist */,
 				E1A141141CC339BE00BBB0F4 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -274,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1A1411B1CC339BE00BBB0F4 /* ViewController.m in Sources */,
+				E1A141481CC339DB00BBB0F4 /* HSDrawViewController.m in Sources */,
 				E1A141181CC339BE00BBB0F4 /* AppDelegate.m in Sources */,
 				E1A141151CC339BE00BBB0F4 /* main.m in Sources */,
 			);
