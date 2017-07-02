@@ -52,11 +52,11 @@
     [super viewDidLoad];
     //1.添加子控件
     [self addChildView];
-    //2添加观察者--监听对象属性(通知)
+    //2添加观察者--监听对象属性(通知)    利用 KVO 监听控件（mainView）的属性
     /*
      anObserver
-     The object to register for KVO notifications. The observer must implement the key-value observing method observeValueForKeyPath:ofObject:change:context:.
-     keyPath
+     The object to register for KVO notifications. The observer must implement the key-value observing method observeValueForKeyPath:ofObject:change:context:. 监听者为当前控制器
+     keyPath  ： 对象属性 ，不能监听结构体的属性
      The key path, relative to the receiver, of the property to observe. This value must not be nil.
      options
      A combination of the NSKeyValueObservingOptions values that specifies what is included in observation notifications. For possible values, see NSKeyValueObservingOptions.
@@ -97,7 +97,7 @@
     if (self.mainView.frame.origin.x >0.5*HSScreenWidth) {
         //定位到右侧
         target = HSRightTarget;
-    }else if (CGRectGetMaxX(self.mainView.frame) < 0.5*HSScreenWidth ){
+    }else if (CGRectGetMaxX(self.mainView.frame) < 0.5*HSScreenWidth ){//
         target = HSLeftTarget;
     }
     
@@ -115,22 +115,23 @@
     [self setIsDraging:NO];//停止拖动
 }
 
+
+
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     //就算偏移量
 
     
-    UITouch *touch = [touches anyObject];
-    CGPoint current = [touch locationInView:self.mainView];
-    CGPoint pre = [touch previousLocationInView:self.mainView];
-    //x的偏移量
+    UITouch *touch = [touches anyObject];//获取UITouch对象
+    CGPoint current = [touch locationInView:self.mainView];//获取当前的点
+    CGPoint pre = [touch previousLocationInView:self.mainView];//上一个点
+    //x的偏移量： 两点的偏移量
     CGFloat offsetX = current.x - pre.x;
     [self.mainView setFrame:[self getCurrentFrameWithOffsetX:offsetX]];
     self.isDraging = YES;
-  
 }
 
 /*
- 根据x的便宜量计算frame
+ 根据两个点之间的x的偏移量来计算， mainView 的frame
  
  */
 
@@ -143,8 +144,9 @@
     }else{
         offsetY = HSMaxY*offsetX/HSScreenWidth;//保证正数，即保证currentHeight 小于screenHeight
     }
+    //1、 计算高度
     CGFloat currentHeight = HSScreenHeight-2*offsetY;//当前的高度
-    CGFloat scale =(currentHeight)/HSScreenHeight;//比例
+    CGFloat scale =(currentHeight)/HSScreenHeight;//比例，用于计算mainView的height、width
     CGRect mainFrame = self.mainView.frame;
     mainFrame.origin.x += offsetX;
     mainFrame.size.height *= scale;
@@ -153,7 +155,7 @@
     return mainFrame;
 }
 
-#pragma  mark -  The observer must implement the key-value observing method observeValueForKeyPath:ofObject:change:context:.
+#pragma  mark -  The observer must implement the key-value observing method observeValueForKeyPath:ofObject:change:context:.   此方法用于判断mainView 的移动方向，以便确定展示那个试图，隐藏哪个视图
 /*
  keyPath: The key path, relative to object, to the value that has changed.
  object: The source object of the key path keyPath.
@@ -164,12 +166,10 @@
     if (self.mainView.frame.origin.x < 0) {
         [self.leftView setHidden:YES];//显示右边视图
         [self.rightView setHidden:NO];
-    }else if (self.mainView.frame.origin.x >0){//往右移动
+    }else if (self.mainView.frame.origin.x >0){//往右移动，显示左边的视图
         [self.rightView setHidden:YES];
         [self.leftView setHidden:NO];
     }
 }
-
-
 
 @end
